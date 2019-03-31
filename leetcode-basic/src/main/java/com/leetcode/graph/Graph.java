@@ -43,13 +43,42 @@ public class Graph { // 无向图
                 }
             }
         }
-    }l
+    }
 
     private void print(int[] prev, int s, int t) { // 递归打印 s->t 的路径
         System.out.print(t + " ---> ");
         if(s == t)
             return;
         print(prev, s, prev[t]);
+    }
+
+    boolean found = false; // 全局变量或者类成员变量
+
+    public void dfs(int s, int t) {
+        found = false;
+        boolean[] visited = new boolean[v];
+        int[] prev = new int[v];
+        for (int i = 0; i < v; ++i) {
+            prev[i] = -1;
+        }
+        recurDfs(s, t, visited, prev);
+        print(prev, s, t);
+    }
+
+    private void recurDfs(int w, int t, boolean[] visited, int[] prev) {
+        if(found) return;
+        visited[w] = true;
+        if(w == t) {
+            found = true;
+            return;
+        }
+        for (int i = 0; i < adj[w].size(); i++) {
+            int next = adj[w].get(i);
+            if(visited[next])
+                continue;
+            prev[next] = w;
+            recurDfs(next, t, visited, prev);
+        }
     }
 
     public static void main(String[] args) {
@@ -65,5 +94,8 @@ public class Graph { // 无向图
         graph.addEdge(5, 7);
         graph.addEdge(6, 7);
         graph.bfs(0,7);
+        System.out.println();
+        graph.dfs(0,7);
+        System.out.println();
     }
 }
