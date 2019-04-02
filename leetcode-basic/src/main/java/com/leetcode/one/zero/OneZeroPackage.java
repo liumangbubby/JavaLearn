@@ -1,9 +1,5 @@
 package com.leetcode.one.zero;
 
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
 /**
  * @author: wei.wang
  * @Description: 0-1 背包问题的回溯方法解决
@@ -42,9 +38,9 @@ public class OneZeroPackage {
 
     public static void main(String[] args) {
         OneZeroPackage oneZeroPackage = new OneZeroPackage();
-        int[] a = new int[]{34, 65, 23, 12, 46, 42, 23, 45, 35, 63, 93, 131, 102, 31};
-        a = IntStream.iterate(1, i -> i + 1).limit(10).toArray();
-        oneZeroPackage.f(0, 0, a, 3, 100);
+        int[] a = new int[]{34, 65, 23, 12, 46, 42, 25, 45, 35, 63, 93, 131, 102, 31};
+        //a = IntStream.iterate(1, i -> i + 1).limit(10).toArray();
+        oneZeroPackage.f(0, 0, a, 10, 41);
         System.out.println(oneZeroPackage.maxW);
     }
 }
