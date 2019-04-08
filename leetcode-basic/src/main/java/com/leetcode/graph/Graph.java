@@ -21,6 +21,20 @@ public class Graph { // 无向图
         adj[t].add(s);
     }
 
+    /**
+     * 有向图
+     * @param s
+     * @param t
+     */
+    public void addEdgeOnce(int s, int t) {
+        adj[s].add(t);
+    }
+
+    /**
+     * 广度优先搜索
+     * @param s
+     * @param t
+     */
     public void bfs(int s, int t) {
         boolean[] visited = new boolean[v];
         Queue<Integer> queue = new LinkedList<>();
@@ -54,6 +68,11 @@ public class Graph { // 无向图
 
     boolean found = false; // 全局变量或者类成员变量
 
+    /**
+     * 深度优先搜索
+     * @param s
+     * @param t
+     */
     public void dfs(int s, int t) {
         found = false;
         boolean[] visited = new boolean[v];
@@ -80,6 +99,34 @@ public class Graph { // 无向图
             recurDfs(next, t, visited, prev);
         }
     }
+
+    /**
+     * 拓扑排序kahn算法
+     * kahn 算法在检测图中环的应用：kahn 算法输出的入度为0的点 < 图的顶点数量那么图中存在环
+     */
+    public void topoSortByKahn() {
+        int[] inDegree = new int[v]; // 统计每个顶点的入度
+        for (int i = 0; i < v; ++i) {
+            for (int j = 0; j < adj[i].size(); ++j) {
+                int w = adj[i].get(j); // i->w
+                inDegree[w]++;
+            }
+        }
+        LinkedList<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < v; ++i) {
+            if (inDegree[i] == 0) queue.add(i);
+        }
+        while (!queue.isEmpty()) {
+            int i = queue.remove();
+            System.out.print("->" + i);
+            for (int j = 0; j < adj[i].size(); ++j) {
+                int k = adj[i].get(j);
+                inDegree[k]--;
+                if (inDegree[k] == 0) queue.add(k);
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         Graph graph = new Graph(8);

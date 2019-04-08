@@ -29,7 +29,6 @@ public class OneZeroPackage3 {
      * @param goodsValue 每个货物价值列表
      * @return 货物的最大值
      */
-    //@SuppressWarnings("all")
     public int optimalAllocation(int[] goodsWeight, int[] goodsValue) {
         int goodsNum = goodsWeight.length;
         this.weightDistribution = new int[goodsNum][maxWeight + 1];
