@@ -1,0 +1,7 @@
+com\xpand\spring\jpa\repository\CoffeeOrderRepository.class
+com\xpand\spring\jpa\entity\CoffeeOrder.class
+com\xpand\spring\jpa\entity\Coffee.class
+com\xpand\spring\jpa\entity\CoffeeOrder$CoffeeOrderBuilder.class
+com\xpand\spring\SpringBootAppStarter.class
+com\xpand\spring\jpa\repository\CoffeeRepository.class
+com\xpand\spring\jpa\entity\Coffee$CoffeeBuilder.class
