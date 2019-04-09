@@ -16,6 +16,7 @@
         <module>dynamicproxy</module>
         <module>spring-learn</module>
         <module>leetcode-basic</module>
+        <module>collections</module>
     </modules>
 
     <build>

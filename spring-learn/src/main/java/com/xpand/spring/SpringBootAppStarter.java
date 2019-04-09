@@ -2,6 +2,7 @@ package com.xpand.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * @author: wei.wang
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Modified
  */
 @SpringBootApplication
+@EnableJpaRepositories
 public class SpringBootAppStarter {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootAppStarter.class, args);
