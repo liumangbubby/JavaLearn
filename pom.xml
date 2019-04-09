@@ -17,6 +17,7 @@
         <module>spring-jpa-learn</module>
         <module>leetcode-basic</module>
         <module>collections</module>
+        <module>spring-mybatis-learn</module>
     </modules>
 
     <build>
